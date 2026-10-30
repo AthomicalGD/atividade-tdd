@@ -44,12 +44,16 @@ def test_desconto_indevido(pedido_grande):
 # Requisito 1 — contar_frete_gratis(pedidos) -> int
 # Escreva os testes ANTES de implementar a função
 
+# def test_contar_frete_gratis(pedido_grande, pedido_pequeno):
+#     pedidos = [pedido_pequeno, pedido_grande]
+#     assert contar_frete_gratis(pedidos) == 1
+
 
 
 # Requisito 2 — situacao(unidades_indisponiveis) -> str
 # Escreva os testes ANTES de implementar o método
 
-
+# def test_situacao
 
 # Requisito 3 — sugerir_frete_gratis(sms_service) -> None
 # Use MagicMock para simular o serviço de SMS
