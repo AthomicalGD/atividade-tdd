@@ -18,6 +18,22 @@ def test_exemplo_quantidade_total(pedido_pequeno):
 # no código original. Não altere src/pedido/pedido.py ainda.
 # =============================================================
 
+def test_item_mais_barato_diferente_de_mais_caro(pedido_pequeno):
+    assert pedido_pequeno.item_mais_barato() != pedido_pequeno.item_mais_caro() 
+
+def test_subtotal_com_quantidades_variadas(pedido_pequeno):
+    valor_total = 0
+    for item in pedido_pequeno.itens:
+        valor_total += item.preco * item.quantidade
+    assert valor_total == pedido_pequeno.subtotal()
+
+def test_desconto_correto(pedido_pequeno):
+    percentual = 10
+    descontado = pedido_pequeno.subtotal() * (100 - percentual) / 100
+    assert pedido_pequeno.total_com_desconto(10) == descontado
+
+def test_desconto_indevido(pedido_grande):
+    assert pedido_grande.tem_frete_gratis() == True
 
 
 # =============================================================
