@@ -68,6 +68,10 @@ def test_mais_de_25_indisponivel(pedido_grande):
     unidades_indisponiveis = pedido_grande.quantidade_total() / 4 + 1
     assert pedido_grande.situacao(unidades_indisponiveis) == "Cancelado por falta de estoque"
 
+def test_tudo_disponivel_com_frete_gratis(pedido_grande):
+    assert pedido_grande.situacao(0) == "Confirmado com frete grátis"
+
+
 
 # Requisito 3 — sugerir_frete_gratis(sms_service) -> None
 # Use MagicMock para simular o serviço de SMS
