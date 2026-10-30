@@ -37,7 +37,8 @@ def test_desconto_correto(pedido_pequeno):
 def test_desconto_indevido(pedido_grande):
     assert pedido_grande.tem_frete_gratis() == True
 
-
+def test_frete_de_50(pedido_de_50):
+    assert pedido_de_50.tem_frete_gratis == True
 # =============================================================
 # PARTE 2 — Implemente com TDD
 # Siga o ciclo: 🔴 escreva o teste → 🟢 implemente → 🟡 refatore
