@@ -93,3 +93,8 @@ def test_pedido_acima_de_50_reais(pedido_grande):
     sms_service = MagicMock()
     pedido_grande.sugerir_frete_gratis(sms_service)
     sms_service.enviar.assert_not_called()
+
+def test_pedido_de_exatamente_50_reais(pedido_de_50):
+    sms_service = MagicMock()
+    pedido_de_50.sugerir_frete_gratis(sms_service)
+    sms_service.enviar.assert_not_called()

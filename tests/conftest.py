@@ -99,3 +99,10 @@ def pedidos_com_4_itens():
             ]
         )
     ]
+
+@pytest.fixture
+def pedido_de_50():
+    return Pedido(
+        cliente="João",
+        itens=[Item("Bolo de cenoura", 50.0, 1)]
+    )
