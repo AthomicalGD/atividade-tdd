@@ -1,6 +1,7 @@
 import pytest
 from unittest.mock import MagicMock
-from pedido.pedido import Item, Pedido
+from pedido.pedido import Item, Pedido, VALOR_FRETE_GRATIS
+
 
 
 # =============================================================
@@ -44,9 +45,12 @@ def test_desconto_indevido(pedido_grande):
 # Requisito 1 — contar_frete_gratis(pedidos) -> int
 # Escreva os testes ANTES de implementar a função
 
-# def test_contar_frete_gratis(pedido_grande, pedido_pequeno):
-#     pedidos = [pedido_pequeno, pedido_grande]
-#     assert contar_frete_gratis(pedidos) == 1
+def test_contar_frete_gratis(pedidos):
+    soma = 0
+    for pedido in pedidos:
+        if pedido.subtotal() > VALOR_FRETE_GRATIS:
+            soma += 1
+    assert contar_frete_gratis(pedidos) == soma
 
 
 
