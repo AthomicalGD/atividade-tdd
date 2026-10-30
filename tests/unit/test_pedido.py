@@ -71,6 +71,9 @@ def test_mais_de_25_indisponivel(pedido_grande):
 def test_tudo_disponivel_com_frete_gratis(pedido_grande):
     assert pedido_grande.situacao(0) == "Confirmado com frete grátis"
 
+def test_tudo_disponivel_sem_frete_gratis(pedido_pequeno):
+    assert pedido_pequeno.situacao(0) == "Confirmado"
+
 
 
 # Requisito 3 — sugerir_frete_gratis(sms_service) -> None
