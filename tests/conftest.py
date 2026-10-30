@@ -83,3 +83,19 @@ def pedidos_com_frete():
             ]
         )
     ]
+
+@pytest.fixture
+def pedidos_com_4_itens():
+    return [
+        Pedido(
+            cliente="Fernando",
+            itens=[Item("Chocolate", 8.0, 4)]
+        ),
+        Pedido(
+            cliente="Érika",
+            itens=[
+                Item("Champagne", 50.0, 2),
+                Item("Brie", 30.0, 2)
+            ]
+        )
+    ]
