@@ -1,6 +1,7 @@
 import pytest
 from unittest.mock import MagicMock
 from pedido.pedido import Item, Pedido, VALOR_FRETE_GRATIS, contar_frete_gratis
+from unittest.mock import MagicMock
 
 
 
@@ -82,3 +83,8 @@ def test_exatamente_25_indisponivel(pedidos_com_4_itens):
 # Requisito 3 — sugerir_frete_gratis(sms_service) -> None
 # Use MagicMock para simular o serviço de SMS
 # Escreva os testes ANTES de implementar o método
+
+def test_pedido_abaixo_de_50_reais(pedido_pequeno):
+    sms_service = MagicMock()
+    pedido_pequeno.sugerir_frete_gratis(sms_service)
+    sms_service.enviar.assert_called_once_with(pedido_pequeno.cliente, 50.0 - pedido_pequeno.subtotal())
