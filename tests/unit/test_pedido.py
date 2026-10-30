@@ -45,14 +45,21 @@ def test_desconto_indevido(pedido_grande):
 # Requisito 1 — contar_frete_gratis(pedidos) -> int
 # Escreva os testes ANTES de implementar a função
 
-def test_contar_frete_gratis(pedidos):
+def test_contar_frete_gratis_mistos(pedidos_mistos):
     soma = 0
-    for pedido in pedidos:
+    for pedido in pedidos_mistos:
         if pedido.subtotal() > VALOR_FRETE_GRATIS:
             soma += 1
-    assert contar_frete_gratis(pedidos) == soma
+    assert contar_frete_gratis(pedidos_mistos) == soma
 
+def test_contar_frete_gratis_vazio(pedidos_vazio):
+    assert contar_frete_gratis(pedidos_vazio) == 0
 
+def test_contar_frete_gratis_sem_frete(pedidos_sem_frete):
+    assert contar_frente_gratis(pedidos_sem_frete) == 0
+
+def test_contar_frete_gratis_todos_frete(pedidos_com_frete):
+    assert contar_frete_gratis(pedidos_com_frete) == pedidos_com_frete.count()
 
 # Requisito 2 — situacao(unidades_indisponiveis) -> str
 # Escreva os testes ANTES de implementar o método
