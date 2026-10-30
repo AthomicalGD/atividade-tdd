@@ -31,6 +31,14 @@ class Pedido:
     def total_com_desconto(self, percentual: float) -> float:
         return self.subtotal() * (100 - percentual) / 100
 
+    def situacao(self, unidades_indisponiveis: int) -> str:
+        if unidades_indisponiveis / self.quantidade_total() > 0.25:
+            return "Cancelado por falta de estoque"
+        elif self.tem_frete_gratis():
+            return "Confirmado com frete grátis"
+        else:
+            return "Confirmado"
+
 def contar_frete_gratis(pedidos: list[Pedido]):
     if pedidos is None: 
         return 0
