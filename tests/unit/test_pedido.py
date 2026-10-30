@@ -64,7 +64,10 @@ def test_contar_frete_gratis_todos_frete(pedidos_com_frete):
 # Requisito 2 — situacao(unidades_indisponiveis) -> str
 # Escreva os testes ANTES de implementar o método
 
-# def test_situacao
+def test_mais_de_25_indisponivel(pedido_grande):
+    unidades_indisponiveis = pedido_grande.quantidade_total() / 4 + 1
+    assert pedido_grande.situacao(unidades_indisponiveis) == "Cancelado por falta de estoque"
+
 
 # Requisito 3 — sugerir_frete_gratis(sms_service) -> None
 # Use MagicMock para simular o serviço de SMS
